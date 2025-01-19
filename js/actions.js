@@ -58,7 +58,7 @@ $(document).ready(function () {
         var cid = $(this).attr('cid');
 
         $.ajax({
-            url: "actions.php", method: "POST", data: {get_seleted_Category: 1, cat_id: cid}, success: function (data) {
+            url: "action.php", method: "POST", data: {get_seleted_Category: 1, cat_id: cid}, success: function (data) {
                 $("#get_product").html(data);
                 if ($("body").width() < 480) {
                     $("body").scrollTop(683);
