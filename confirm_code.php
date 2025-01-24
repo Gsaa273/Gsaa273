@@ -20,8 +20,29 @@ if (isset($_POST['code'])) {
 
         echo 'success';
     } catch (Throwable $e) {
-        echo 'error: ' . $e->getMessage();
+        echo "<div class='alert alert-warning'>AWS Error: " . $e->getMessage() . "</div>";
+
     }
     exit();
 }
 ?>
+<div class="container-fluid">
+    <div class="login-marg">
+        <form onsubmit="return false" id="confirm_code" class="login100-form ">
+            <div class="section-title">
+                <h2 class="login100-form-title p-b-49">Confirm Your Email</h2>
+            </div>
+            <input  type="hidden" name="email" value="<?php echo $_GET['email'];?>">
+
+            <div class="form-group">
+                <label for="code">Code</label>
+                <input class="input input-borders" type="text" name="code" placeholder="#####" id="code"
+                       required>
+            </div>
+
+            <input class="primary-btn btn-block" type="submit" value="Verify">
+
+        </form>
+
+    </div>
+</div>
